@@ -21,6 +21,20 @@ namespace DingDingSDK.auth
                 throw new OApiResultException("access_token");
             }
         }
+        public static String getCid()
+        {
+            String url = Env.OAPI_HOST + "/gettoken?" +
+                "corpid=" + Env.CORP_ID + "&corpsecret=" + Env.SECRET;
+            BsonDocument response = HttpHelper.httpGet(url);
+            if (response.Contains("access_token"))
+            {
+                return response["access_token"].ToString();
+            }
+            else
+            {
+                throw new OApiResultException("access_token");
+            }
+        }
 
         public static String getJsapiTicket(String accessToken)
         {

@@ -27,8 +27,8 @@ namespace DingDingDemo
 
                 //请改写你的配置
                 Vars.AGENT_ID = "";
-                Env.CORP_ID = "";
-                Env.SECRET = "";
+                Env.CORP_ID = "ding494cbaf69c064ec5";
+                Env.SECRET = "siAHET0TBLRPJyc-up-EfUWDzNUmOqDdNgiKkAvFgJm8byBr3xO3CP3Lafd-ZLIH";
                 Env.CREATE_SUITE_KEY = "";
                 Env.SUITE_KEY = "";
                 Env.SUITE_SECRET = "";
@@ -52,6 +52,37 @@ namespace DingDingDemo
                 //获取部门列表
                 List<Department> list = DepartmentHelper.listDepartments(accessToken);
                 log("成功获取部门列表", list);
+                #region 测试部分打印list
+                //循环打印部门清单
+                foreach (var item in list)
+                {
+                    Console.WriteLine(item);
+                }
+                //获取部门成员
+                List<User> userLists = UserHelper.getDepartmentUser(accessToken, 12519064);
+                log("成功获取部门成员", "部门成员user=", userLists);
+                #endregion
+                foreach (var item in userLists)
+                {
+                    Console.WriteLine(item);
+                }
+                #region 测试--发送信息
+                
+
+                //发送会话消息
+                String senders = "040406273926677700";
+                String cids = "12639226";
+                String agentIds = "27801076";
+                ConversationMessageDelivery conversationMessageDeliverys =
+                        new ConversationMessageDelivery(senders, cids, agentIds);
+
+                TextMessage textMessages = new TextMessage("TextMessage");
+                conversationMessageDeliverys.withMessage(textMessages);
+                MessageHelper.send(accessToken, conversationMessageDeliverys);
+                log("成功发送 会话文本消息");
+
+                #endregion
+
 
                 //创建部门
                 String name = "TestDept.16";

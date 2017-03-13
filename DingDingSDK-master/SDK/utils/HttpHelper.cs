@@ -11,6 +11,7 @@ using static DingDingSDK.utils.FormUpload;
 
 namespace DingDingSDK.utils
 {
+    //GOT,POST,UPMEDIA
     public class HttpHelper
     {
         private static CookieContainer cookie = new CookieContainer();
