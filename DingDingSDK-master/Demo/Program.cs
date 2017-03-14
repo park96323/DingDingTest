@@ -27,8 +27,8 @@ namespace DingDingDemo
 
                 //请改写你的配置
                 Vars.AGENT_ID = "";
-                Env.CORP_ID = "ding494cbaf69c064ec5";
-                Env.SECRET = "siAHET0TBLRPJyc-up-EfUWDzNUmOqDdNgiKkAvFgJm8byBr3xO3CP3Lafd-ZLIH";
+                Env.CORP_ID = "";
+                Env.SECRET = "";
                 Env.CREATE_SUITE_KEY = "";
                 Env.SUITE_KEY = "";
                 Env.SUITE_SECRET = "";
